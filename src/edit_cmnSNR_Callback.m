@@ -31,16 +31,16 @@ function edit_cmnSNR_Callback(hObject, eventdata)
 
 global CM
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
 if isnan(newValue)
     % value entered is not a number - reset to previous value
-    set(hObject,'Value',num2str(CM.fiber.CMNSNR))
+    set(hObject,'string',num2str(CM.fiber.CMNSNR))
     return
 end
 if newValue <-1000 || newValue > 1000
     % newValue is out of range - reset to previous value
-    set(hObject,'Value',num2str(CM.fiber.CMNSNR))
+    set(hObject,'string',num2str(CM.fiber.CMNSNR))
     return
 end
 

@@ -35,20 +35,20 @@ global CM
 % default S wave velocity
 % CM.model.Svelocity = CM.model.Pvelocity/(1.5);
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
-switch XDAS.h.model.listbox_velocityType.Value
+switch get(XDAS.h.model.listbox_velocityType,'Value')
     case 1
         % constant velocity case
         
         if isnan(newValue)
             % value entered is not a number - reset to previous value
-            set(hObject,'Value',num2str(CM.model.Svelocity))
+            set(hObject,'string',num2str(CM.model.Svelocity))
             return
         end
         if newValue < 0
             % newValue is less than minimum value - reset to previous value
-            set(hObject,'Value',num2str(CM.model.Svelocity))
+            set(hObject,'string',num2str(CM.model.Svelocity))
             return
         end
         
@@ -59,12 +59,12 @@ switch XDAS.h.model.listbox_velocityType.Value
         
         if isnan(newValue)
             % value entered is not a number - reset to previous value
-            set(hObject,'Value',num2str(CM.model.Vs0))
+            set(hObject,'string',num2str(CM.model.Vs0))
             return
         end
         if newValue < 0
             % newValue is less than minimum value - reset to previous value
-            set(hObject,'Value',num2str(CM.model.Vs0))
+            set(hObject,'string',num2str(CM.model.Vs0))
             return
         end
         

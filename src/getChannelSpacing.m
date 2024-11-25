@@ -33,7 +33,7 @@ global XDAS
 
 % get the channel spacing
 
-switch XDAS.h.menu_channelSpacing10m.Checked
+switch get(XDAS.h.menu_channelSpacing10m,'Checked')
     case 'on'
         channelSpacing = 10;
     otherwise

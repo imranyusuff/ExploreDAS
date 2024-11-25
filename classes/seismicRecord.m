@@ -1,4 +1,4 @@
-classdef seismicRecord <  matlab.mixin.SetGetExactNames
+classdef seismicRecord < handle    % matlab.mixin.SetGetExactNames
     
 % ***********************************************************************************************************
 %  seismicRecord - this class handles the properties of a seismic record

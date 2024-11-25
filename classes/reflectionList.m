@@ -1,4 +1,4 @@
-classdef reflectionList < matlab.mixin.SetGetExactNames
+classdef reflectionList < handle    %matlab.mixin.SetGetExactNames
     
 % ***********************************************************************************************************
 %  reflectionList - this class handles list of reflectors
@@ -97,7 +97,7 @@ classdef reflectionList < matlab.mixin.SetGetExactNames
             reaction = 'none';
             
             if thisSegment > obj.nsegments
-                disp([' Error: reflector segment ' num2str(thisSegment) ' is outside of range. Max = ' num2str(obj.nsegment)])
+                disp([' Error: reflector segment ' num2str(thisSegment) ' is outside of range. Max = ' num2str(obj.nsegments)])
                 done = true;
                 return
             end

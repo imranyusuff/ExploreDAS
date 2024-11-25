@@ -34,16 +34,16 @@ global CM
 % default value
 % CM.model.xmax = 5000;
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
 if isnan(newValue)
     % value entered is not a number - reset to previous value
-    set(hObject,'Value',num2str(CM.model.xmax))
+    set(hObject,'string',num2str(CM.model.xmax))
     return
 end
 if newValue < CM.model.xmin
     % newValue is less than minimum value - reset to previous value
-    set(hObject,'Value',num2str(CM.model.xmax))
+    set(hObject,'string',num2str(CM.model.xmax))
     return
 end
 

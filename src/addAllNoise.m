@@ -31,8 +31,8 @@ function addAllNoise(copySource,cmnNoise)
 
 global CM
 
-nsamples  = get(copySource,'nsamples');
-nchannels = get(copySource,'nchannels');
+nsamples  = copySource.nsamples;
+nchannels = copySource.nchannels;
 
     
 % extract signal level of the synthetic - two options using rms of signal or max value of signal
@@ -40,14 +40,14 @@ nchannels = get(copySource,'nchannels');
 rmsSyn = copySource.max('Other');
 
 % save the rms value of the signal in the record
-set(copySource,'rmsSignal',rmsSyn)
+copySource.rmsSignal = rmsSyn;
 
 
 % **************************************************************************
 % clear out the noise traces for new noise data
 % **************************************************************************
 
-set(copySource,'tracesOtherNoise',zeros(nsamples,nchannels));
+copySource.tracesOtherNoise = zeros(nsamples,nchannels);
 
 % ************************************************************************************************
 % create optical noise
@@ -56,11 +56,11 @@ set(copySource,'tracesOtherNoise',zeros(nsamples,nchannels));
 noiseInstance = opticalNoiseRecord(CM.fiber.nNoiseFiles,nchannels,nsamples,CM.paths.rsrcs);
 
 % extract signal levels of the noise
-[opticalNoise, rmsOpticalNoise] = noiseInstance.createNoise(get(copySource,'opticalNoiseSeeds'),CM.fiber.ifNoiseFromFile);
+[opticalNoise, rmsOpticalNoise] = noiseInstance.createNoise(copySource.opticalNoiseSeeds,CM.fiber.ifNoiseFromFile);
 
 % add the noise to shot record
-set(copySource,'tracesOtherNoise', opticalNoise);
-set(copySource,'rmsOpticalNoise', rmsOpticalNoise);
+copySource.tracesOtherNoise = opticalNoise;
+copySource.rmsOpticalNoise = rmsOpticalNoise;
 
 % delete the noise selected noise record to save space
 clear opticalNoise;
@@ -71,11 +71,11 @@ clear opticalNoise;
 % ************************************************************************************************
 
 % extract signal levels of the noise with no scaling
-[selectedNoise, rmsCMN] = cmnNoise.mkCMNunscaled(nsamples,get(copySource,'CMNSeeds'));
+[selectedNoise, rmsCMN] = cmnNoise.mkCMNunscaled(nsamples,copySource.CMNSeeds);
 
 % save the common mode noise into the shot record
-set(copySource,'traceCMN',selectedNoise);
+copySource.traceCMN = selectedNoise;
 % save the rms of the common mode noise into the shot record
-set(copySource,'rmsCMN',rmsCMN);
+copySource.rmsCMN = rmsCMN;
         
     

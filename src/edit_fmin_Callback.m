@@ -38,9 +38,9 @@ function edit_fmin_Callback(hObject, eventdata)
 global CM
 global XDAS
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
-switch get(XDAS.h.simulation.listbox_sourceType,'Value')
+switch get(XDAS.h.simulation.listbox_sourceType,'string')
     case 1
         % Ricker wavelet
         default = CM.model.f0;
@@ -51,7 +51,7 @@ end
 
 if isnan(newValue) || newValue < 1
     % value entered is not a number or is less than min - reset to previous value
-    set(hObject,'Value',num2str(default))
+    set(hObject,'string',num2str(default))
     return
 end
 

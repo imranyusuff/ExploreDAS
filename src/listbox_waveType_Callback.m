@@ -34,15 +34,15 @@ global CM
 
 %{'P DAS', 'S DAS', 'P Vertical', 'S Horizontal'};
 
-wavetype = char(XDAS.h.simulation.listbox_waveType.Items(XDAS.h.simulation.listbox_waveType.Value));
+wavetype = char(get(XDAS.h.simulation.listbox_waveType,'string')(get(XDAS.h.simulation.listbox_waveType,'Value')));
 
 switch wavetype
     case {'P DAS', 'S DAS'}
         % allow the use of the gauge on DAS data
-        XDAS.h.simulation.pushbutton_useGL.Visible = 'on';
+        set(XDAS.h.simulation.pushbutton_useGL, 'Visible', 'on');
     otherwise
         % cannot use the gauge for geophone data
-        XDAS.h.simulation.pushbutton_useGL.Visible = 'off';
+        set(XDAS.h.simulation.pushbutton_useGL, 'Visible', 'off');
 end
 
 CM.model.waveType = wavetype;

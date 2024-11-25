@@ -1,4 +1,4 @@
-classdef sourcePoints < matlab.mixin.SetGetExactNames
+classdef sourcePoints < handle   %matlab.mixin.SetGetExactNames
     
 % ***********************************************************************************************************
 %  sourcePoints - this class handles the properties of a seismic source points

@@ -36,6 +36,6 @@ XDAS.obj.reflectors = reflectionList();
 set(XDAS.h.reflector.text_selectReflector,'visible','off')
 set(XDAS.h.reflector.listbox_reflectors,  'visible','off')
 
-XDAS.h.reflector.listbox_reflectors.Items = {'None'};
-XDAS.h.reflector.listbox_reflectors.ItemsData = [1];
-XDAS.h.reflector.listbox_reflectors.Value = 1;
+set(XDAS.h.reflector.listbox_reflectors, 'string', {'None'});
+%set(XDAS.h.reflector.listbox_reflectors.ItemsData = [1];
+set(XDAS.h.reflector.listbox_reflectors, 'Value', 1);

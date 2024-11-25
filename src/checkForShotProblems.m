@@ -33,15 +33,15 @@ global XDAS
 
 problemList = [];
 problems = false;
-if get(XDAS.obj.sources,'nsource') < 1
+if XDAS.obj.sources.nsource < 1
     problems = true;
     problemList = [problemList ' (No Sources Defined)'];
 end
-if get(XDAS.obj.well,'nwell') < 1
+if XDAS.obj.well.nwell < 1
     problems = true;
     problemList = [problemList ' (Not Enough Well Points Defined)'];
 end    
-if get(XDAS.obj.reflectors,'nsegments') < 1
+if XDAS.obj.reflectors.nsegments < 1
     problems = true;
     problemList = [problemList ' (No Reflector Points Defined)'];
 end    

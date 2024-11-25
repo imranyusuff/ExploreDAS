@@ -32,12 +32,12 @@ global XDAS
 
 if XDAS.obj.reflectors.nsegments > 0
     % create the list of current reflectors
-    for ireflector = 1:get(XDAS.obj.reflectors','nsegments')
+    for ireflector = 1:XDAS.obj.reflectors.nsegments
         list{ireflector} = num2str(ireflector);
     end
-    XDAS.h.reflector.listbox_reflectors.Items = list;
-    XDAS.h.reflector.listbox_reflectors.ItemsData = 1:get(XDAS.obj.reflectors','nsegments');
-    set(XDAS.h.reflector.listbox_reflectors,'value',get(XDAS.obj.reflectors','nsegments'))
+    set(XDAS.h.reflector.listbox_reflectors, 'string', list);
+    %XDAS.h.reflector.listbox_reflectors.ItemsData = 1:get(XDAS.obj.reflectors','nsegments');
+    set(XDAS.h.reflector.listbox_reflectors,'value',XDAS.obj.reflectors.nsegments)
     
     set(XDAS.h.reflector.listbox_reflectors,  'visible','on')
     set(XDAS.h.reflector.text_selectReflector,'visible','on')

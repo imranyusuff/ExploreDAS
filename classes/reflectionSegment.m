@@ -1,4 +1,4 @@
-classdef reflectionSegment < matlab.mixin.SetGetExactNames
+classdef reflectionSegment < handle    %matlab.mixin.SetGetExactNames
     
 % ***********************************************************************************************************
 %  reflectionSegment - this class handles the properties of a reflector segment

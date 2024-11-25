@@ -1,4 +1,4 @@
-classdef migratedCDP < matlab.mixin.SetGetExactNames
+classdef migratedCDP < handle    %matlab.mixin.SetGetExactNames
     
 % ***********************************************************************************************************
 %  migratedCDP - this class handles migrated CDPs

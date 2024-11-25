@@ -31,16 +31,16 @@ function edit_migZmax_Callback(hObject, eventdata)
 
 global CM
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
 if isnan(newValue)
     % value entered is not a number - reset to previous value
-    set(hObject,'Value',num2str(CM.model.migZmax))
+    set(hObject,'string',num2str(CM.model.migZmax))
     return
 end
 if newValue < CM.model.migZmin
     % newValue is less than minimum value - reset to previous value
-    set(hObject,'Value',num2str(CM.model.migZmax))
+    set(hObject,'string',num2str(CM.model.migZmax))
     return
 end
 

@@ -19,9 +19,10 @@ y = [];
 button = [];
 
 %Check if uiax is from uiaxes
-if ~isvalid(huiax) && ~strcmpi('matlab.ui.control.UIAxes',class(huiax))
-    return; %Not uiaxes   
-end
+%if ~isvalid(huiax) && ~strcmpi('matlab.ui.control.UIAxes',class(huiax))
+%if ~strcmpi('matlab.ui.control.UIAxes',class(huiax))
+%    return; %Not uiaxes   
+%end
 
 %Activate line that moves for the whole fig
 hFig = ancestor(huiax,'figure');
@@ -74,43 +75,43 @@ uiwait(hFig);
 %--------------------------------------------------------------------------
     function mouseMoveFcn(varargin)
         % This function updates cursor location based on pointer location
-        cursorPt = huiax.CurrentPoint;
+        cursorPt = get(huiax,'CurrentPoint');
         
         %Prevent cursor from moving beyond XLim
-        if cursorPt(1)>huiax.XLim(2)
-            cursorPt(1) = huiax.XLim(2);            
-        elseif cursorPt(1)<huiax.XLim(1)
-            cursorPt(1)=huiax.XLim(1);            
+        if cursorPt(1)>get(huiax,'xlim')(2)
+            cursorPt(1) = get(huiax,'xlim')(2);            
+        elseif cursorPt(1)<get(huiax,'xlim')(1)
+            cursorPt(1)=get(huiax,'xlim')(1);            
         end
         
         %Prevent cursor from moving beyond YLim
-        if cursorPt(3)>huiax.YLim(2)
-            cursorPt(3) = huiax.YLim(2);            
-        elseif cursorPt(3)<huiax.YLim(1)
-            cursorPt(3)=huiax.YLim(1);            
+        if cursorPt(3)>get(huiax,'ylim')(2)
+            cursorPt(3) = get(huiax,'ylim')(2);            
+        elseif cursorPt(3)<get(huiax,'ylim')(1)
+            cursorPt(3)=get(huiax,'ylim')(1);            
         end
        
 %         set(hCursor, ...
-%             'XData', [huiax.XLim(1) huiax.XLim(2) nan cursorPt(1) cursorPt(1)], ...
-%             'YData', [cursorPt(3) cursorPt(3) nan huiax.YLim(1) huiax.YLim(2)]);
+%             'XData', [get(huiax,'xlim')(1) get(huiax,'xlim')(2) nan cursorPt(1) cursorPt(1)], ...
+%             'YData', [cursorPt(3) cursorPt(3) nan get(huiax,'ylim')(1) get(huiax,'ylim')(2)]);
         
-        hodometer.Text    = ['Dist = ' num2str(round(cursorPt(1))) ' Depth =' num2str(round(cursorPt(3)))];
-        hodometer.Visible = 'on';
+        set(hodometer, 'string', ['Dist = ' num2str(round(cursorPt(1))) ' Depth =' num2str(round(cursorPt(3)))]);
+        set(hodometer, 'Visible', 'on');
 
     end
 
 %--------------------------------------------------------------------------
     function mouseClickFcn(varargin)
         % This function captures mouse clicks.
-        pos = hFig.CurrentPoint;
-        pt = huiax.CurrentPoint;
+        pos = get(hFig,'CurrentPoint');
+        pt = get(huiax,'CurrentPoint');
 
-        x = max(min(pt(1),huiax.XLim(2)),huiax.XLim(1));
-        y = max(min(pt(3),huiax.YLim(2)),huiax.YLim(1));
+        x = max(min(pt(1),get(huiax,'xlim')(2)),get(huiax,'xlim')(1));
+        y = max(min(pt(3),get(huiax,'ylim')(2)),get(huiax,'ylim')(1));
         
         %disp(['clicked x= ' num2str(pt(1)) ' clicked z = ' num2str(pt(2)) ' fixed x = ' num2str(x) ' fixed z = ' num2str(y)])
 
-            button = hFig.SelectionType;
+            button = get(hFig,'SelectionType');
             if strcmp(button,'open')
                 button = 1;
             elseif strcmp(button,'normal')

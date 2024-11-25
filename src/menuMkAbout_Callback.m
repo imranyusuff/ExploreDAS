@@ -36,7 +36,7 @@ XDASabout.fromFile = false;
 % make sure there is only one instance of this figure
 if isfield(XDASabout,'h')
     % delete the existing figure
-    delete(XDASabout.h.figure1)
+    %delete(XDASabout.h.figure1)
 end
 
 % set up the default window size of the gui
@@ -55,8 +55,9 @@ XDASabout.h.figure1 = uifigure('position',position,'Menubar','none','Color','whi
 % turn off interpreting backslashes as commands in text fields of plots
 set(XDASabout.h.figure1,'defaultTextInterpreter','none')
 
-XDASabout.h.list = uilistbox(XDASabout.h.figure1);
-XDASabout.h.list.Position = [10 10 dx-20 dy-20];
+%XDASabout.h.list = uilistbox(XDASabout.h.figure1);
+%XDASabout.h.list.Position = [10 10 dx-20 dy-20];
+XDASabout.h.list = uicontrol('parent',XDASabout.h.figure1,'style','listbox','position',[10 10 dx-20 dy-20]);
 
 
 if XDASabout.fromFile
@@ -106,5 +107,5 @@ else
 end
 
 % create the test list in the figure
-XDASabout.h.list.Items = Items;
+set(XDASabout.h.list, 'string', Items);
 

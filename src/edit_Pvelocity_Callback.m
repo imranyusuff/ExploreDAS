@@ -35,20 +35,20 @@ global CM
 % default P velocity
 % CM.model.Pvelocity = 4000;
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
-switch XDAS.h.model.listbox_velocityType.Value
+switch get(XDAS.h.model.listbox_velocityType,'Value')
     case 1
         % constant velocity case
         
         if isnan(newValue)
             % value entered is not a number - reset to previous value
-            set(hObject,'Value',num2str(CM.model.Pvelocity))
+            set(hObject,'string',num2str(CM.model.Pvelocity))
             return
         end
         if newValue < 0
             % newValue is less than minimum value - reset to previous value
-            set(hObject,'Value',num2str(CM.model.Pvelocity))
+            set(hObject,'string',num2str(CM.model.Pvelocity))
             return
         end
         
@@ -59,12 +59,12 @@ switch XDAS.h.model.listbox_velocityType.Value
         
         if isnan(newValue)
             % value entered is not a number - reset to previous value
-            set(hObject,'Value',num2str(CM.model.Vp0))
+            set(hObject,'string',num2str(CM.model.Vp0))
             return
         end
         if newValue < 0
             % newValue is less than minimum value - reset to previous value
-            set(hObject,'Value',num2str(CM.model.Vp0))
+            set(hObject,'string',num2str(CM.model.Vp0))
             return
         end
         

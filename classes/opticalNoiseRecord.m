@@ -1,4 +1,4 @@
-classdef opticalNoiseRecord < matlab.mixin.SetGetExactNames
+classdef opticalNoiseRecord < handle    %matlab.mixin.SetGetExactNames
     
 % ***********************************************************************************************************
 %  opticalNoiseRecord - this class handles optical noise records

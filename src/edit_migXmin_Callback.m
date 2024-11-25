@@ -31,16 +31,16 @@ function edit_migXmin_Callback(hObject, eventdata)
 
 global CM
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
 if isnan(newValue)
     % value entered is not a number - reset to previous value
-    set(hObject,'Value',num2str(CM.model.migXmin))
+    set(hObject,'string',num2str(CM.model.migXmin))
     return
 end
 if newValue > CM.model.migXmax
     % newValue is less than minimum value - reset to previous value
-    set(hObject,'Value',num2str(CM.model.migXmin))
+    set(hObject,'string',num2str(CM.model.migXmin))
     return
 end
 

@@ -34,16 +34,16 @@ global CM
 % default zmin value
 % CM.model.zmin = 0;
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
 if isnan(newValue)
     % value entered is not a number - reset to previous value
-    set(hObject,'Value',num2str(CM.model.zmin))
+    set(hObject,'string',num2str(CM.model.zmin))
     return
 end
 if newValue > CM.model.xmax
     % newValue is less than minimum value - reset to previous value
-    set(hObject,'Value',num2str(CM.model.zmin))
+    set(hObject,'string',num2str(CM.model.zmin))
     return
 end
 

@@ -34,11 +34,11 @@ global XDAS
 CM.model.ifShowBackgroundImage = ~CM.model.ifShowBackgroundImage;
 
 if CM.model.ifShowBackgroundImage
-    XDAS.h.well.pushbutton_showImage.Text = 'Image';
-    XDAS.h.well.pushbutton_showImage.BackgroundColor = XDAS.colors.goGreen;
+    set(XDAS.h.well.pushbutton_showImage, 'string', 'Image');
+    set(XDAS.h.well.pushbutton_showImage, 'BackgroundColor', XDAS.colors.goGreen);
 else
-    XDAS.h.well.pushbutton_showImage.Text = 'No Image';
-    XDAS.h.well.pushbutton_showImage.BackgroundColor = XDAS.colors.stopRed;
+    set(XDAS.h.well.pushbutton_showImage, 'string', 'No Image');
+    set(XDAS.h.well.pushbutton_showImage, 'BackgroundColor', XDAS.colors.stopRed);
 end
 
 plotBackgroundImage

@@ -34,90 +34,90 @@ global XDAS
 % callbacks for panel_simulation
 % ****************************************************************
 
-XDAS.h.simulation.edit_fmax.ValueChangedFcn                 = @edit_fmax_Callback;
-XDAS.h.simulation.edit_fmin.ValueChangedFcn                 = @edit_fmin_Callback;
-XDAS.h.simulation.edit_dt.ValueChangedFcn                   = @edit_dt_Callback;
-XDAS.h.simulation.edit_tmax.ValueChangedFcn                 = @edit_tmax_Callback;
-XDAS.h.simulation.pushbutton_model.ButtonPushedFcn          = @pushbutton_runModel_Callback;
-XDAS.h.simulation.listbox_sourceType.ValueChangedFcn        = @listbox_sourceType_Callback;  
-XDAS.h.simulation.edit_GL.ValueChangedFcn                   = @edit_GL_Callback;
-XDAS.h.simulation.pushbutton_useGL.ButtonPushedFcn          = @pushbutton_useGL_Callback;
-XDAS.h.simulation.pushbutton_firstBreaks.ButtonPushedFcn    = @pushbutton_firstBreaks_Callback;
-XDAS.h.simulation.pushbutton_spectralRatios.ButtonPushedFcn = @pushbutton_spectralRatios_Callback;
+set(XDAS.h.simulation.edit_fmax, 'callback',                 @edit_fmax_Callback);
+set(XDAS.h.simulation.edit_fmin, 'callback',                 @edit_fmin_Callback);
+set(XDAS.h.simulation.edit_dt, 'callback',                   @edit_dt_Callback);
+set(XDAS.h.simulation.edit_tmax, 'callback',                 @edit_tmax_Callback);
+set(XDAS.h.simulation.pushbutton_model, 'callback',          @pushbutton_runModel_Callback);
+set(XDAS.h.simulation.listbox_sourceType, 'callback',        @listbox_sourceType_Callback);  
+set(XDAS.h.simulation.edit_GL, 'callback',                   @edit_GL_Callback);
+set(XDAS.h.simulation.pushbutton_useGL, 'callback',          @pushbutton_useGL_Callback);
+set(XDAS.h.simulation.pushbutton_firstBreaks, 'callback',    @pushbutton_firstBreaks_Callback);
+%set(XDAS.h.simulation.pushbutton_spectralRatios, 'callback', @pushbutton_spectralRatios_Callback);
 
-XDAS.h.simulation.listbox_waveType.ValueChangedFcn          = @listbox_waveType_Callback;  
+set(XDAS.h.simulation.listbox_waveType, 'callback',          @listbox_waveType_Callback);  
 
 
 % ****************************************************************
 % callbacks for panel_source
 % ****************************************************************
 
-XDAS.h.source.pushbutton_delete.ButtonPushedFcn      = @pushbutton_deleteSource_Callback;
-XDAS.h.source.pushbutton_add.ButtonPushedFcn         = @pushbutton_addSource_Callback;
+set(XDAS.h.source.pushbutton_delete, 'callback',      @pushbutton_deleteSource_Callback);
+set(XDAS.h.source.pushbutton_add, 'callback',         @pushbutton_addSource_Callback);
 
 % ****************************************************************
 % callbacks for panel_reflector
 % ****************************************************************
 
-XDAS.h.reflector.listbox_reflectors.ValueChangedFcn   = @listbox_selectReflector_Callback;
-XDAS.h.reflector.pushbutton_reorder.ButtonPushedFcn   = @pushbutton_reorderReflectorPoints_Callback;
-XDAS.h.reflector.pushbutton_delete.ButtonPushedFcn    = @pushbutton_deleteReflectorPoint_Callback;
-XDAS.h.reflector.pushbutton_add.ButtonPushedFcn       = @pushbutton_addReflectorPoint_Callback;
-XDAS.h.reflector.pushbutton_startNew.ButtonPushedFcn  = @pushbutton_addNewReflector_Callback;
+set(XDAS.h.reflector.listbox_reflectors, 'callback',   @listbox_selectReflector_Callback);
+set(XDAS.h.reflector.pushbutton_reorder, 'callback',   @pushbutton_reorderReflectorPoints_Callback);
+set(XDAS.h.reflector.pushbutton_delete, 'callback',    @pushbutton_deleteReflectorPoint_Callback);
+set(XDAS.h.reflector.pushbutton_add, 'callback',       @pushbutton_addReflectorPoint_Callback);
+set(XDAS.h.reflector.pushbutton_startNew, 'callback',  @pushbutton_addNewReflector_Callback);
 
 % ****************************************************************
 % callbacks for panel_well
 % ****************************************************************
 
-XDAS.h.well.pushbutton_reorder.ButtonPushedFcn        = @pushbutton_reorderWell_Callback;
-XDAS.h.well.pushbutton_delete.ButtonPushedFcn         = @pushbutton_deleteWellPoint_Callback;
-XDAS.h.well.pushbutton_add.ButtonPushedFcn            = @pushbutton_addWellPoint_Callback;
+set(XDAS.h.well.pushbutton_reorder, 'callback',        @pushbutton_reorderWell_Callback);
+set(XDAS.h.well.pushbutton_delete, 'callback',         @pushbutton_deleteWellPoint_Callback);
+set(XDAS.h.well.pushbutton_add, 'callback',            @pushbutton_addWellPoint_Callback);
 
 % ****************************************************************
 % callbacks for panel_model
 % ****************************************************************
  
- XDAS.h.model.edit_xmax.ValueChangedFcn            = @edit_Xmax_Callback;
- XDAS.h.model.edit_xmin.ValueChangedFcn            = @edit_Xmin_Callback;
- XDAS.h.model.edit_zmax.ValueChangedFcn            = @edit_Zmax_Callback;
- XDAS.h.model.edit_zmin.ValueChangedFcn            = @edit_Zmin_Callback;
- XDAS.h.model.edit_svel.ValueChangedFcn            = @edit_Svelocity_Callback;
- XDAS.h.model.edit_pvel.ValueChangedFcn            = @edit_Pvelocity_Callback;
- XDAS.h.model.edit_kz.ValueChangedFcn              = @edit_kz_Callback;
- XDAS.h.model.listbox_velocityType.ValueChangedFcn = @listbox_velocityType_Callback;
- XDAS.h.well.pushbutton_showImage.ButtonPushedFcn  = @pushbutton_showBackgroundImage;
+ set(XDAS.h.model.edit_xmax, 'callback',            @edit_Xmax_Callback);
+ set(XDAS.h.model.edit_xmin, 'callback',            @edit_Xmin_Callback);
+ set(XDAS.h.model.edit_zmax, 'callback',            @edit_Zmax_Callback);
+ set(XDAS.h.model.edit_zmin, 'callback',            @edit_Zmin_Callback);
+ set(XDAS.h.model.edit_svel, 'callback',            @edit_Svelocity_Callback);
+ set(XDAS.h.model.edit_pvel, 'callback',            @edit_Pvelocity_Callback);
+ set(XDAS.h.model.edit_kz, 'callback',              @edit_kz_Callback);
+ set(XDAS.h.model.listbox_velocityType, 'callback', @listbox_velocityType_Callback);
+ set(XDAS.h.well.pushbutton_showImage, 'callback',  @pushbutton_showBackgroundImage);
 
 % ****************************************************************
 % callbacks for panel_migration
 % ****************************************************************
  
-XDAS.h.migration.pushbutton_migrate.ButtonPushedFcn  = @pushbutton_migrate_Callback;
-XDAS.h.migration.pushbutton_CDP.ButtonPushedFcn      = @pushbutton_CDP_Callback;
-XDAS.h.migration.edit_dx.ValueChangedFcn             = @edit_dx_Callback;
-XDAS.h.migration.edit_dz.ValueChangedFcn             = @edit_dz_Callback;
-XDAS.h.migration.edit_migZmin.ValueChangedFcn        = @edit_migZmin_Callback;
-XDAS.h.migration.edit_migZmax.ValueChangedFcn        = @edit_migZmax_Callback;
-XDAS.h.migration.edit_migXmin.ValueChangedFcn        = @edit_migXmin_Callback;
-XDAS.h.migration.edit_migXmax.ValueChangedFcn        = @edit_migXmax_Callback;
-XDAS.h.migration.edit_CDPx.ValueChangedFcn           = @edit_CDPx_Callback;
+set(XDAS.h.migration.pushbutton_migrate, 'callback',  @pushbutton_migrate_Callback);
+set(XDAS.h.migration.pushbutton_CDP, 'callback',      @pushbutton_CDP_Callback);
+set(XDAS.h.migration.edit_dx, 'callback',             @edit_dx_Callback);
+set(XDAS.h.migration.edit_dz, 'callback',             @edit_dz_Callback);
+set(XDAS.h.migration.edit_migZmin, 'callback',        @edit_migZmin_Callback);
+set(XDAS.h.migration.edit_migZmax, 'callback',        @edit_migZmax_Callback);
+set(XDAS.h.migration.edit_migXmin, 'callback',        @edit_migXmin_Callback);
+set(XDAS.h.migration.edit_migXmax, 'callback',        @edit_migXmax_Callback);
+set(XDAS.h.migration.edit_CDPx, 'callback',           @edit_CDPx_Callback);
 
 % ****************************************************************
 % callbacks for panel_DAS
 % ****************************************************************
 
-XDAS.h.DAS.pushbutton_removeCMN.ButtonPushedFcn         = @pushbutton_removeCMN_Callback;
+set(XDAS.h.DAS.pushbutton_removeCMN, 'callback',         @pushbutton_removeCMN_Callback);
 
-XDAS.h.DAS.edit_opticalSNR.ValueChangedFcn              = @edit_opticalNoiseSNR_Callback;
-XDAS.h.DAS.pushbutton_addOpticalNoise.ButtonPushedFcn   = @pushbutton_addOpticalNoise_Callback;
+set(XDAS.h.DAS.edit_opticalSNR, 'callback',              @edit_opticalNoiseSNR_Callback);
+set(XDAS.h.DAS.pushbutton_addOpticalNoise, 'callback',   @pushbutton_addOpticalNoise_Callback);
 
-XDAS.h.DAS.pushbutton_addCMN.ButtonPushedFcn            = @pushbutton_addCMN_Callback;
-XDAS.h.DAS.edit_CMNSNR.ValueChangedFcn                  = @edit_cmnSNR_Callback;
+set(XDAS.h.DAS.pushbutton_addCMN, 'callback',            @pushbutton_addCMN_Callback);
+%set(XDAS.h.DAS.edit_CMNSNR, 'callback',                  @edit_cmnSNR_Callback);
 
-XDAS.h.DAS.pushbutton_displayfk.ButtonPushedFcn         = @pushbutton_displayFK_Callback;
-XDAS.h.DAS.pushbutton_displaySourceNum.ButtonPushedFcn  = @pushbutton_displaySourceNum_Callback;
-XDAS.h.DAS.pushbutton_polarity.ButtonPushedFcn          = @pushbutton_polarity_Callback;
-XDAS.h.DAS.pushbutton_noiseOnly.ButtonPushedFcn         = @pushbutton_noiseOnly_Callback;
+set(XDAS.h.DAS.pushbutton_displayfk, 'callback',         @pushbutton_displayFK_Callback);
+set(XDAS.h.DAS.pushbutton_displaySourceNum, 'callback',  @pushbutton_displaySourceNum_Callback);
+set(XDAS.h.DAS.pushbutton_polarity, 'callback',          @pushbutton_polarity_Callback);
+set(XDAS.h.DAS.pushbutton_noiseOnly, 'callback',         @pushbutton_noiseOnly_Callback);
 
-XDAS.h.DAS.pushbutton_gainUp.ButtonPushedFcn            = @pushbutton_gainUp_Callback;
-XDAS.h.DAS.pushbutton_gainDown.ButtonPushedFcn          = @pushbutton_gainDown_Callback;
+set(XDAS.h.DAS.pushbutton_gainUp, 'callback',            @pushbutton_gainUp_Callback);
+set(XDAS.h.DAS.pushbutton_gainDown, 'callback',          @pushbutton_gainDown_Callback);
 

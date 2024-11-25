@@ -44,54 +44,54 @@ noiseOnlyColor         = stopRed;
 firstBreaksColor       = stopRed;
 
 if CM.fiber.ifOpticalNoise
-    XDAS.h.DAS.pushbutton_addOpticalNoise.Text = '+ Optical Noise';
+    set(XDAS.h.DAS.pushbutton_addOpticalNoise, 'string', '+ Optical Noise');
     opticalNoiseColor = goGreen;
 else
-    XDAS.h.DAS.pushbutton_addOpticalNoise.Text = 'No Optical Noise';    
+    set(XDAS.h.DAS.pushbutton_addOpticalNoise, 'string', 'No Optical Noise');    
 end
 
 
 if CM.fiber.ifCMN
     CMNColor = goGreen;
-    XDAS.h.DAS.pushbutton_addCMN.Text = '+ CMN Noise';
+    set(XDAS.h.DAS.pushbutton_addCMN, 'string', '+ CMN Noise');
 else
-    XDAS.h.DAS.pushbutton_addCMN.Text = 'No CMN Noise';
+    set(XDAS.h.DAS.pushbutton_addCMN, 'string', 'No CMN Noise');
 end
 
 if CM.fiber.ifPolarity
     polarityColor = goGreen;
-    XDAS.h.DAS.pushbutton_polarity.Text = 'Reversed Polarity';
+    set(XDAS.h.DAS.pushbutton_polarity, 'string', 'Reversed Polarity');
 else
-    XDAS.h.DAS.pushbutton_polarity.Text = 'Normal Polarity';
+    set(XDAS.h.DAS.pushbutton_polarity, 'string', 'Normal Polarity');
 end
 
 if CM.fiber.ifNoiseOnly
     noiseOnlyColor = goGreen;
-    XDAS.h.DAS.pushbutton_noiseOnly.Text = 'Noise Only';
+    set(XDAS.h.DAS.pushbutton_noiseOnly, 'string', 'Noise Only');
 else
-    XDAS.h.DAS.pushbutton_noiseOnly.Text = 'Sig & Noise';
+    set(XDAS.h.DAS.pushbutton_noiseOnly, 'string', 'Sig & Noise');
 end
 
 if CM.simulation.ifFirstBreaks
     firstBreaksColor = goGreen;
-    XDAS.h.simulation.pushbutton_firstBreaks.Text = 'First Breaks';
+    set(XDAS.h.simulation.pushbutton_firstBreaks, 'string', 'First Breaks');
 else
-    XDAS.h.simulation.pushbutton_firstBreaks.Text = 'No First Breaks';
+    set(XDAS.h.simulation.pushbutton_firstBreaks, 'string', 'No First Breaks');
 end
     
 
 if CM.fiber.ifremoveCMN
-    XDAS.h.DAS.pushbutton_removeCMN.Text = 'Remove CMN';
+    set(XDAS.h.DAS.pushbutton_removeCMN, 'string', 'Remove CMN');
     removeCMNColor = goGreen;
 else
-    XDAS.h.DAS.pushbutton_removeCMN.Text = 'Leave in CMN';
+    set(XDAS.h.DAS.pushbutton_removeCMN, 'string', 'Leave in CMN');
 end
 
 if CM.fiber.ifGauge
-    XDAS.h.simulation.pushbutton_useGL.Text = 'Use Gauge';
+    set(XDAS.h.simulation.pushbutton_useGL, 'string', 'Use Gauge');
     useGaugeColor = goGreen;
 else
-    XDAS.h.simulation.pushbutton_useGL.Text = 'No Gauge';
+    set(XDAS.h.simulation.pushbutton_useGL, 'string', 'No Gauge');
 end
 
 set(XDAS.h.DAS.pushbutton_addOpticalNoise,  'BackgroundColor',opticalNoiseColor)
@@ -105,9 +105,9 @@ set(XDAS.h.DAS.pushbutton_noiseOnly,        'BackgroundColor',noiseOnlyColor)
 set(XDAS.h.simulation.pushbutton_firstBreaks,      'BackgroundColor',firstBreaksColor)
 
 % set the edit fields to the to default current values
-set(XDAS.h.DAS.edit_opticalSNR,    'Value',num2str(CM.fiber.opticalNoiseSNR))
-set(XDAS.h.DAS.edit_CMNSNR,        'Value',num2str(CM.fiber.CMNSNR))
+set(XDAS.h.DAS.edit_opticalSNR,    'string',num2str(CM.fiber.opticalNoiseSNR))
+set(XDAS.h.DAS.edit_CMNSNR,        'string',num2str(CM.fiber.CMNSNR))
 %set(handles.edit_fadingSNR,       'string',num2str(CM.fiber.fadingSNR))
-set(XDAS.h.simulation.edit_GL,     'Value',num2str(CM.fiber.GL))
+set(XDAS.h.simulation.edit_GL,     'string',num2str(CM.fiber.GL))
 
 drawnow

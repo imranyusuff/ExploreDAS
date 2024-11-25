@@ -1,4 +1,4 @@
-classdef cmnTrace < matlab.mixin.SetGetExactNames
+classdef cmnTrace < handle    %matlab.mixin.SetGetExactNames
     
 % ***********************************************************************************************************
 %  cmnTrace - this class handles common mode noise traces

@@ -42,7 +42,7 @@ title(XDAS.h.axes_model,infoTitle,'fontsize',16,'fontweight','bold')
 while true
     
     % make sure pointer is the cross hair
-    XDAS.h.figure1.Pointer = 'crosshair';
+    set(XDAS.h.figure1, 'Pointer', 'crosshair');
 
     %[x,z,button] = ginputuiaxButtonClick(XDAS.h.axes_model,1);
     [x,z,button] = ginputuiaxButtonClickBetter(XDAS.h.axes_model,1,XDAS.h.digitize.text_odometer);
@@ -116,9 +116,9 @@ while true
 end
 
 % return pointer is the arrow
-XDAS.h.figure1.Pointer = 'arrow';
+set(XDAS.h.figure1, 'Pointer', 'arrow');
 
-XDAS.h.digitize.text_odometer.Visible = 'off';
+set(XDAS.h.digitize.text_odometer, 'Visible', 'off');
 
 % update title on the model to instruct user what to do next
 title(XDAS.h.axes_model,['Model'],'fontsize',16,'fontweight','bold')

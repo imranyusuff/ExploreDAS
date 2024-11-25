@@ -31,16 +31,16 @@ function edit_GL_Callback(hObject, eventdata)
 
 global CM
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
 if isnan(newValue)
     % value entered is not a number - reset to previous value
-    set(hObject,'Value',num2str(CM.fiber.GL))
+    set(hObject,'string',num2str(CM.fiber.GL))
     return
 end
 if newValue > 500 || newValue < 1
     % newValue is outside of limits - reset to previous value
-    set(hObject,'Value',num2str(CM.fiber.GL))
+    set(hObject,'string',num2str(CM.fiber.GL))
     return
 end
 

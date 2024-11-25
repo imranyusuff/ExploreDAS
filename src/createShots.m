@@ -109,7 +109,7 @@ hfigTraces = findOrCreateFigure('Traces','Wiggle Traces');
 % create each shot record
 % *****************************************************************************
 
-nshots = get(XDAS.obj.sources,'nsource');
+nshots = XDAS.obj.sources.nsource;
 tic;
 
 for ishot = 1:nshots
@@ -149,9 +149,9 @@ for ishot = 1:nshots
                                                           createShotsInfo.fmax,...
                                                           XDAS.obj.sources.x(ishot),...
                                                           XDAS.obj.sources.z(ishot),...
-                                                          get(XDAS.obj.well,'interpx'),...
-                                                          get(XDAS.obj.well,'interpz'),...
-                                                          get(XDAS.obj.well,'MD'),...
+                                                          XDAS.obj.well.interpx,...
+                                                          XDAS.obj.well.interpz,...
+                                                          XDAS.obj.well.MD,...
                                                           velocityType,...
                                                           CM.fiber.GL,...
                                                           CM.paths.data);
@@ -223,7 +223,9 @@ for ishot = 1:nshots
     % add the noise to the record
     % ************************************************************************************************
     
+    printf("shot %d before addAllNoise()\n",ishot); %%%OCTAVEWORK%%%
     addAllNoise(XDAS.obj.shotRecords(ishot),cmnNoise)
+    printf("shot %d after addAllNoise()\n",ishot); %%%OCTAVEWORK%%%
    
     % ************************************************************************************************
     % replot final shot records into the same figure to save memory
@@ -257,6 +259,7 @@ for ishot = 1:nshots
         title(XDAS.h.axes_model,['Fatal Error - cannot write shot record to disk'],'fontsize',16,'fontweight','bold')
         return
     end
+    printf("shot %d complete!\n",ishot); %%%OCTAVEWORK%%%
  
 end
 

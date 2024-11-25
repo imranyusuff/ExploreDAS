@@ -80,7 +80,8 @@ set(XDAS.h.panel_source,'Position',[Sou.xLeftEdge Sou.yBottomEdge Sou.xWidth Sou
 % move the odometer appropriately
 % ************************************************************************************************************
 
-XDAS.h.digitize.text_odometer.Position = [(Sim.xLeftEdge+Sou.xWidth+10) Sou.yBottomEdge 400 20];     
+%XDAS.h.digitize.text_odometer.Position = [(Sim.xLeftEdge+Sou.xWidth+10) Sou.yBottomEdge 400 20];     
+set(XDAS.h.digitize.text_odometer,'Position', [(Sim.xLeftEdge+Sou.xWidth+10) Sou.yBottomEdge 400 20]);
 
 % ************************************************************************************************************
 % create the panel for the Reflector information
@@ -148,4 +149,4 @@ Ax.yBottomEdge = Sou.yBottomEdge            + 50;
 Ax.xWidth      = dx - Ax.xLeftEdge          - 20;
 Ax.yHeight     = dy - Ax.yBottomEdge        - 40;
 
-set(XDAS.h.axes_model,'Position',[Ax.xLeftEdge Ax.yBottomEdge Ax.xWidth Ax.yHeight]);
+%set(XDAS.h.axes_model,'Position',[Ax.xLeftEdge Ax.yBottomEdge Ax.xWidth Ax.yHeight]);

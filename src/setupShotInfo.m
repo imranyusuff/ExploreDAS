@@ -60,7 +60,7 @@ switch waveType
 end
 
 createShotsInfo.nsamples  = CM.model.nsamples;
-createShotsInfo.nchannels = length(get(XDAS.obj.well,'interpx'));
+createShotsInfo.nchannels = length(XDAS.obj.well.interpx);
 createShotsInfo.dt        = CM.model.dt;
 createShotsInfo.f0        = CM.model.f0;
 

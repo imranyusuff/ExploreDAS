@@ -38,78 +38,78 @@ ylim(XDAS.h.axes_model,[CM.model.zmin CM.model.zmax])
 set(XDAS.h.axes_model,'ydir','reverse')
 
 % update the editable fields on the gui - Model Panel
-set(XDAS.h.model.edit_xmin,'Value',num2str(CM.model.xmin))
-set(XDAS.h.model.edit_xmax,'Value',num2str(CM.model.xmax))
-set(XDAS.h.model.edit_zmin,'Value',num2str(CM.model.zmin))
-set(XDAS.h.model.edit_zmax,'Value',num2str(CM.model.zmax))
+set(XDAS.h.model.edit_xmin,'string',num2str(CM.model.xmin))
+set(XDAS.h.model.edit_xmax,'string',num2str(CM.model.xmax))
+set(XDAS.h.model.edit_zmin,'string',num2str(CM.model.zmin))
+set(XDAS.h.model.edit_zmax,'string',num2str(CM.model.zmax))
 
-set(XDAS.h.model.edit_pvel,'Value',num2str(CM.model.Pvelocity))
-set(XDAS.h.model.edit_svel,'Value',num2str(CM.model.Svelocity))
+set(XDAS.h.model.edit_pvel,'string',num2str(CM.model.Pvelocity))
+set(XDAS.h.model.edit_svel,'string',num2str(CM.model.Svelocity))
 
-switch get(XDAS.h.model.listbox_velocityType,'Value')
+switch get(XDAS.h.model.listbox_velocityType,'string')
     case 1
         % Constant velocity model
-        XDAS.h.model.text_kz.Visible    = 'off';
-        XDAS.h.model.edit_kz.Visible    = 'off';
-        XDAS.h.model.edit_pvel.Value    = num2str(CM.model.Pvelocity);
-        XDAS.h.model.edit_svel.Value    = num2str(CM.model.Svelocity);
-        XDAS.h.model.text_pvel.Text     = 'P Velocity';
-        XDAS.h.model.text_svel.Text     = 'S Velocity';
+        set(XDAS.h.model.text_kz, 'visible', 'off');
+        set(XDAS.h.model.edit_kz, 'visible', 'off');
+        set(XDAS.h.model.edit_pvel, 'string', num2str(CM.model.Pvelocity));
+        set(XDAS.h.model.edit_svel, 'string', num2str(CM.model.Svelocity));
+        set(XDAS.h.model.text_pvel, 'string', 'P Velocity');
+        set(XDAS.h.model.text_svel, 'string', 'S Velocity');
                 
     case 2
         % Gradient velocity model
-        XDAS.h.model.text_kz.Visible    = 'on';
-        XDAS.h.model.edit_kz.Visible    = 'on';
-        XDAS.h.model.edit_kz.Value      = num2str(CM.model.kz);
-        XDAS.h.model.edit_pvel.Value    = num2str(CM.model.Vp0);
-        XDAS.h.model.edit_svel.Value    = num2str(CM.model.Vs0);
-        XDAS.h.model.text_pvel.Text     = 'Vp0';
-        XDAS.h.model.text_svel.Text     = 'Vs0';     
+        set(XDAS.h.model.text_kz, 'visible', 'on');
+        set(XDAS.h.model.edit_kz, 'visible', 'on');
+        set(XDAS.h.model.edit_kz, 'string', num2str(CM.model.kz));
+        set(XDAS.h.model.edit_pvel, 'string', num2str(CM.model.Vp0));
+        set(XDAS.h.model.edit_svel, 'string', num2str(CM.model.Vs0));
+        set(XDAS.h.model.text_pvel, 'string', 'Vp0');
+        set(XDAS.h.model.text_svel, 'string', 'Vs0');     
 end
 
 
 % update the editable fields on the gui - Simulation Panel
-set(XDAS.h.simulation.edit_dt,  'Value',num2str(CM.model.dt))
-set(XDAS.h.simulation.edit_tmax,'Value',num2str(CM.model.tmax))
+set(XDAS.h.simulation.edit_dt,  'string',num2str(CM.model.dt))
+set(XDAS.h.simulation.edit_tmax,'string',num2str(CM.model.tmax))
 
 
-switch get(XDAS.h.simulation.listbox_sourceType,'Value')
+switch get(XDAS.h.simulation.listbox_sourceType,'string')
     case 1
         % Ricker wavelet
-        XDAS.h.simulation.text_fmin.Text = 'F0 (Hz)';
-        XDAS.h.simulation.edit_fmin.Value = num2str(CM.model.f0);
-        XDAS.h.simulation.text_fmax.Visible  = 'off';
-        XDAS.h.simulation.edit_fmax.Visible  = 'off';
-        XDAS.h.simulation.edit_fmin.Tooltip = 'Enter the center frequency of the Ricker wavelet in Hertz';
+        set(XDAS.h.simulation.text_fmin, 'string', 'F0 (Hz)');
+        set(XDAS.h.simulation.edit_fmin, 'string', num2str(CM.model.f0));
+        set(XDAS.h.simulation.text_fmax, 'visible', 'off');
+        set(XDAS.h.simulation.edit_fmax, 'visible', 'off');
+        set(XDAS.h.simulation.edit_fmin, 'tooltipstring', 'Enter the center frequency of the Ricker wavelet in Hertz');
         
     case 2
         % Klauder wavelet
-        XDAS.h.simulation.text_fmin.Text = 'Fmin (Hz)';
-        XDAS.h.simulation.edit_fmin.Value = num2str(CM.model.fmin);
-        XDAS.h.simulation.text_fmax.Text = 'Fmax (Hz)';
-        XDAS.h.simulation.edit_fmax.Value = num2str(CM.model.fmax);
-        XDAS.h.simulation.text_fmax.Visible  = 'on';
-        XDAS.h.simulation.edit_fmax.Visible  = 'on';
-        XDAS.h.simulation.edit_fmin.Tooltip = 'Enter the low frequency cut off of the Klauder wavelet in Hertz';
-        XDAS.h.simulation.edit_fmax.Tooltip = 'Enter the high frequency cut off of the Klauder wavelet in Hertz';
+        set(XDAS.h.simulation.text_fmin, 'string', 'Fmin (Hz)');
+        set(XDAS.h.simulation.edit_fmin, 'string', num2str(CM.model.fmin));
+        set(XDAS.h.simulation.text_fmax, 'string', 'Fmax (Hz)');
+        set(XDAS.h.simulation.edit_fmax, 'string', num2str(CM.model.fmax));
+        set(XDAS.h.simulation.text_fmax, 'visible', 'on');
+        set(XDAS.h.simulation.edit_fmax, 'visible', 'on');
+        set(XDAS.h.simulation.edit_fmin, 'tooltipstring', 'Enter the low frequency cut off of the Klauder wavelet in Hertz');
+        set(XDAS.h.simulation.edit_fmax, 'tooltipstring', 'Enter the high frequency cut off of the Klauder wavelet in Hertz');
 end
 
 % update fields on gui - migration panel
 
-set(XDAS.h.migration.edit_dx,      'Value',num2str(CM.model.xinc))
-set(XDAS.h.migration.edit_dz,      'Value',num2str(CM.model.zinc))
-set(XDAS.h.migration.edit_migXmin, 'Value',num2str(CM.model.migXmin))
-set(XDAS.h.migration.edit_migXmax, 'Value',num2str(CM.model.migXmax))
-set(XDAS.h.migration.edit_migZmin, 'Value',num2str(CM.model.migZmin))
-set(XDAS.h.migration.edit_migZmax, 'Value',num2str(CM.model.migZmax))
-set(XDAS.h.migration.edit_CDPx,    'Value',num2str(CM.model.CDPx))
+set(XDAS.h.migration.edit_dx,      'string',num2str(CM.model.xinc))
+set(XDAS.h.migration.edit_dz,      'string',num2str(CM.model.zinc))
+set(XDAS.h.migration.edit_migXmin, 'string',num2str(CM.model.migXmin))
+set(XDAS.h.migration.edit_migXmax, 'string',num2str(CM.model.migXmax))
+set(XDAS.h.migration.edit_migZmin, 'string',num2str(CM.model.migZmin))
+set(XDAS.h.migration.edit_migZmax, 'string',num2str(CM.model.migZmax))
+set(XDAS.h.migration.edit_CDPx,    'string',num2str(CM.model.CDPx))
 
 
 % update fields on the gui - DAS parameters panel
 
-XDAS.h.DAS.edit_GL.Value         = num2str(CM.fiber.GL);
-XDAS.h.DAS.edit_opticalSNR.Value = num2str(CM.fiber.opticalNoiseSNR);
-XDAS.h.DAS.edit_CMNSNR.Value     = num2str(CM.fiber.CMNSNR);
+set(XDAS.h.simulation.edit_GL         ,'string',num2str(CM.fiber.GL));
+set(XDAS.h.DAS.edit_opticalSNR ,'string',num2str(CM.fiber.opticalNoiseSNR));
+set(XDAS.h.DAS.edit_CMNSNR     ,'string',num2str(CM.fiber.CMNSNR));
 
 % update status of background image display option
 if ~isempty(CM.model.modelImage)
@@ -119,19 +119,19 @@ else
 end
 
 if CM.model.ifShowBackgroundImage
-    XDAS.h.well.pushbutton_showImage.Text = 'Image';
-    XDAS.h.well.pushbutton_showImage.BackgroundColor = XDAS.colors.goGreen;
+    set(XDAS.h.well.pushbutton_showImage, 'string', 'Image');
+    set(XDAS.h.well.pushbutton_showImage, 'backgroundcolor', XDAS.colors.goGreen);
 else
-    XDAS.h.well.pushbutton_showImage.Text = 'No Image';
-    XDAS.h.well.pushbutton_showImage.BackgroundColor = XDAS.colors.stopRed;
+    set(XDAS.h.well.pushbutton_showImage, 'string', 'No Image');
+    set(XDAS.h.well.pushbutton_showImage, 'backgroundcolor', XDAS.colors.stopRed);
 end
 
 if CM.fiber.ifGauge
-    XDAS.h.well.pushbutton_showImage.Text = 'Image';
-    XDAS.h.well.pushbutton_showImage.BackgroundColor = XDAS.colors.goGreen;
+    set(XDAS.h.well.pushbutton_showImage, 'string', 'Image');
+    set(XDAS.h.well.pushbutton_showImage, 'backgroundcolor', XDAS.colors.goGreen);
 else
-    XDAS.h.well.pushbutton_showImage.Text = 'No Image';
-    XDAS.h.well.pushbutton_showImage.BackgroundColor = XDAS.colors.stopRed;
+    set(XDAS.h.well.pushbutton_showImage, 'string', 'No Image');
+    set(XDAS.h.well.pushbutton_showImage, 'backgroundcolor', XDAS.colors.stopRed);
 end
 
 drawnow

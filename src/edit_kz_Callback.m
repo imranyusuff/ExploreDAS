@@ -32,9 +32,9 @@ function edit_kz_Callback(hObject, eventdata)
 global XDAS
 global CM
 
-newValue = str2double(get(hObject,'Value'));
+newValue = str2double(get(hObject,'string'));
 
-switch XDAS.h.model.listbox_velocityType.Value
+switch get(XDAS.h.model.listbox_velocityType,'value')
     case 1
         % constant velocity case - never get here!
         
@@ -43,12 +43,12 @@ switch XDAS.h.model.listbox_velocityType.Value
         
         if isnan(newValue)
             % value entered is not a number - reset to previous value
-            set(hObject,'Value',num2str(CM.model.kz))
+            set(hObject,'string',num2str(CM.model.kz))
             return
         end
         if newValue < 0.0000001
             % newValue is less than minimum value - reset to previous value
-            set(hObject,'Value',num2str(CM.model.kz))
+            set(hObject,'string',num2str(CM.model.kz))
             return
         end
         
