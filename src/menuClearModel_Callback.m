@@ -36,14 +36,15 @@ global XDAS
 
 % check to see if the user really wants to delete the current model
 
-hfig = uifigure;
+%hfig = uifigure;
 msg = 'Do you really want to discard the current model and start a new model from scratch?';
 ttitle = 'Clear Current Model';
 
-selection = uiconfirm(hfig,msg,ttitle,'Options',{'Delete Current Model','Cancel'}, ...
-                      'DefaultOption',2,'CancelOption',2);
+%selection = uiconfirm(hfig,msg,ttitle,'Options',{'Delete Current Model','Cancel'}, ...
+%                      'DefaultOption',2,'CancelOption',2);
+selection = questdlg(msg,ttitle,'Delete Current Model','Cancel','Cancel');
                   
-delete(hfig)
+%delete(hfig)
                   
 switch selection
     case 'Cancel'

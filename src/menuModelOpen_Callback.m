@@ -84,7 +84,7 @@ for isegment = 1:EDAS.reflectors.nsegments
 
     % add the reflection coeficient if it is present
     if isfield(EDAS.reflectors.segments(isegment),'reflectionCoeficientScalar')
-        set(XDAS.obj.reflectors.segments(isegment),'reflectionCoeficientScalar',EDAS.reflectors.segments(isegment).reflectionCoeficientScalar)
+        XDAS.obj.reflectors.segments(isegment).reflectionCoeficientScalar = EDAS.reflectors.segments(isegment).reflectionCoeficientScalar;
     end
 
 end

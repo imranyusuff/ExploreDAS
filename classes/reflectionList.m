@@ -78,13 +78,25 @@ classdef reflectionList < handle    %matlab.mixin.SetGetExactNames
             obj.nsegments = obj.nsegments + 1;
             if nargin == 1
                 % default case - create empty object
-                obj.segments = [obj.segments, reflectionSegment(obj.nsegments)];
+                if obj.nsegments > 1
+                    obj.segments = [obj.segments, reflectionSegment(obj.nsegments)];
+                else
+                    obj.segments = reflectionSegment(1);
+                end
             elseif nargin == 3
                 % create object with just x & z input values
-                obj.segments = [obj.segments, reflectionSegment(obj.nsegments,x,z)];
+                if obj.nsegments > 1
+                    obj.segments = [obj.segments, reflectionSegment(obj.nsegments,x,z)];
+                else
+                    obj.segments = reflectionSegment(1,x,z);
+                end
             elseif nargin == 6
                 % create object with all input values
-                obj.segments = [obj.segments, reflectionSegment(obj.nsegments,x,z,color,interpx,interpz)];
+                if obj.nsegments > 1
+                    obj.segments = [obj.segments, reflectionSegment(obj.nsegments,x,z,color,interpx,interpz)];
+                else
+                    obj.segments = reflectionSegment(1,x,z,color,interpx,interpz);
+                end
             else
                 disp('reflectionList Class Error: cannot create  a new reflectionSegment - not enough input parameters')
             end
