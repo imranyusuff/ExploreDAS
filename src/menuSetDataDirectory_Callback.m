@@ -45,8 +45,8 @@ end
 
 CM.paths.data = path;
 
-XDAS.h.figure1.Name = [XDAS.releaseTitle 'Data Dir: ' CM.paths.data];
+set(XDAS.h.figure1, 'Name', [XDAS.releaseTitle 'Data Dir: ' CM.paths.data]);
 
-XDAS.h.menu_setDataDirectory.Checked = 'on';
+set(XDAS.h.menu_setDataDirectory, 'Checked', 'on');
 
 drawnow
