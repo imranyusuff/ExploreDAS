@@ -38,6 +38,6 @@ CM.simulation.ifMigrateGeophone = false;
 
 % toggle the selection switches on the menu items
 
-XDAS.h.menu_migGeophone.Checked = 'off';
-XDAS.h.menu_migNoise.Checked    = 'on';
+set(XDAS.h.menu_migGeophone, 'Checked', 'off');
+set(XDAS.h.menu_migNoise, 'Checked', 'on');
 drawnow

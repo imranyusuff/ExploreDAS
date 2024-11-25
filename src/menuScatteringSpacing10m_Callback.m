@@ -33,6 +33,6 @@ global XDAS
 
 % toggle the selection switches on the menu items
 
-XDAS.h.menu_scatteringSpacing10m.Checked  = 'on';
-XDAS.h.menu_scatteringSpacing2p5m.Checked = 'off';
+set(XDAS.h.menu_scatteringSpacing10m, 'Checked', 'on');
+set(XDAS.h.menu_scatteringSpacing2p5m, 'Checked', 'off');
 drawnow

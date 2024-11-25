@@ -33,6 +33,6 @@ global XDAS
 
 % toggle the selection switches on the menu items
 
-XDAS.h.menu_channelSpacing10m.Checked  = 'off';
-XDAS.h.menu_channelSpacing2p5m.Checked = 'on';
+set(XDAS.h.menu_channelSpacing10m, 'Checked', 'off');
+set(XDAS.h.menu_channelSpacing2p5m, 'Checked', 'on');
 drawnow

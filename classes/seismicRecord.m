@@ -1553,13 +1553,14 @@ classdef seismicRecord < handle    % matlab.mixin.SetGetExactNames
             catch
                 fail = true;
                 % warn the user of the failure to find this file
-                hfig = uifigure;
+                %hfig = uifigure;
                 msg = ['Cannot open file: ' filename '. Try setting the data directory properly'];
                 ttitle = 'Shot Record File Not Found';
                 
-                selection = uiconfirm(hfig,msg,ttitle,'Options',{'Ok'}, 'DefaultOption',1);
+                %selection = uiconfirm(hfig,msg,ttitle,'Options',{'Ok'}, 'DefaultOption',1);
+                msgbox(msg,ttitle);
                 
-                delete(hfig)
+                %delete(hfig)
                 
                 return
             end
