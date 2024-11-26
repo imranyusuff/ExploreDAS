@@ -39,8 +39,8 @@ if ~isfield(XDAS.obj,'shotRecords') || isempty(XDAS.obj.shotRecords)
     
 else
     
-    nchannels = get(XDAS.obj.shotRecords(1),'nchannels');
-    wellMD    = get(XDAS.obj.shotRecords(1),'wellMD');
+    nchannels = XDAS.obj.shotRecords(1).nchannels;
+    wellMD    = XDAS.obj.shotRecords(1).wellMD;
     
 end
 
@@ -52,9 +52,9 @@ if pass && nchannels > 0
         %list{ichannel} = num2str(ichannel);
         list{ichannel} = num2str(round(wellMD(ichannel)));
     end
-    XDAS.h.simulation.listbox_channelNumber.Items = list;
-    XDAS.h.simulation.listbox_channelNumber.ItemsData = 1:nchannels;
-    XDAS.h.simulation.listbox_channelNumber.Value = 1;
+    set(XDAS.h.simulation.listbox_channelNumber, 'string', list);
+    %XDAS.h.simulation.listbox_channelNumber.ItemsData = 1:nchannels;
+    set(XDAS.h.simulation.listbox_channelNumber, 'Value', 1);
     
     set(XDAS.h.simulation.listbox_channelNumber,'visible','on')
     set(XDAS.h.simulation.text_channelNumber,   'visible','on')

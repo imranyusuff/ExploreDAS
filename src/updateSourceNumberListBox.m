@@ -30,17 +30,17 @@ function updateSourceNumberListBox()
 
 global XDAS
 
-nsources = get(XDAS.obj.sources,'nsource');
+nsources = XDAS.obj.sources.nsource;
 
 if nsources > 0 && isfield(XDAS.obj,'shotRecords') && length(XDAS.obj.shotRecords) >= nsources
     
     % create the list of current source records
     for ishot = 1:nsources
-        list{ishot} = num2str(get(XDAS.obj.shotRecords(ishot),'shotNumber'));
+        list{ishot} = num2str(XDAS.obj.shotRecords(ishot).shotNumber);
     end
-    XDAS.h.simulation.listbox_sourceNumber.Items = list;
-    XDAS.h.simulation.listbox_sourceNumber.ItemsData = 1:nsources;
-    XDAS.h.simulation.listbox_sourceNumber.Value = nsources;
+    set(XDAS.h.simulation.listbox_sourceNumber, 'string', list);
+    %set(XDAS.h.simulation.listbox_sourceNumber.ItemsData = 1:nsources;
+    set(XDAS.h.simulation.listbox_sourceNumber, 'Value', nsources);
     
     set(XDAS.h.simulation.listbox_sourceNumber,'visible','on')
     set(XDAS.h.simulation.text_sourceNumber,   'visible','on')
